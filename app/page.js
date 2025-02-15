@@ -10,6 +10,7 @@ export default function Home() {
 	const [ filename, setFilename ] = useState(null);
 	const [ filetype, setFiletype] = useState(null);
 	const [ convertToType, setConvertToType] = useState('');
+
 	const iconSize = 0.2 * window.innerWidth;
 	const filetypes = [
 		'jpeg',
@@ -62,10 +63,9 @@ export default function Home() {
 		if(image && filename && filetype) {
 			return (
 				<div className={styles.info}>
-					<p>Filename:<br />{filename.slice(0, filename.indexOf('.'))}</p>
-					<p>Filetype:<br />{filetype.toUpperCase()}</p>
+					<p className={styles.filename}>{filename}</p>
 					<div className={styles.convertContainer}>
-						<label htmlFor='choices'>Convert to:</label>
+						<label className={styles.convertLabel} htmlFor='choices'>Convert to</label>
 						<select id='choices' className={styles.convertMenu} name='choices' value={convertToType} onChange={handleConvertTypeChange}>
 							{filetypes.map((ft) => {
 								if(ft !== filetype)
@@ -74,7 +74,7 @@ export default function Home() {
 						</select>
 					</div>
 					<button className={styles.convertButton} onClick={convert}>
-						Convert and download
+						<svg id='download-icon' xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M480-313 287-506l43-43 120 120v-371h60v371l120-120 43 43-193 193ZM220-160q-24 0-42-18t-18-42v-143h60v143h520v-143h60v143q0 24-18 42t-42 18H220Z"/></svg>
 					</button>
 				</div>
 			);

@@ -1,6 +1,11 @@
+:root {
+	--primary: #505050;
+	--secondary-font: Arial, sans-serif;
+}
+
 * {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-family: 'Share Tech Mono', monospace;
 	font-size: 16pt;
 	color: #fff;
 

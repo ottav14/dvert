@@ -10,8 +10,6 @@ export default function Home() {
 	const [ filename, setFilename ] = useState(null);
 	const [ filetype, setFiletype] = useState(null);
 	const [ convertToType, setConvertToType] = useState('');
-	const [ downloadURL, setDownloadURL ] = useState(null);
-	const [ downloadName, setDownloadName ] = useState(null);
 	const iconSize = 0.2 * window.innerWidth;
 	const filetypes = [
 		'jpeg',
@@ -43,10 +41,17 @@ export default function Home() {
 		canvas.height = img.height;
 		ctx.drawImage(img, 0, 0);
 
-		const newDownloadURL = canvas.toDataURL(`image/${convertToType}`);
-		const newDownloadName = `converted.${convertToType}`;
-		setDownloadURL(newDownloadURL);
-		setDownloadName(newDownloadName);
+		const imageUrl = canvas.toDataURL(`image/${convertToType}`);
+		const downloadName = `converted.${convertToType}`;
+
+		const link = document.createElement("a");
+		link.href = imageUrl;
+		link.download = downloadName;
+		
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+
 	}
 
 	const handleConvertTypeChange = (e) => {
@@ -68,14 +73,9 @@ export default function Home() {
 							})}
 						</select>
 					</div>
-					<button className={styles.convertButton} onClick={() => convert(image)}>
-						Convert
+					<button className={styles.convertButton} onClick={convert}>
+						Convert and download
 					</button>
-					<a href={downloadURL} download={downloadName}>
-						<button className={styles.convertButton}>
-							Download
-						</button>
-					</a>
 				</div>
 			);
 		}

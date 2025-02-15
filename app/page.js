@@ -63,7 +63,7 @@ export default function Home() {
 		if(image && filename && filetype) {
 			return (
 				<div className={styles.info}>
-					<p className={styles.filename}>{filename}</p>
+					<div className={styles.filename}>{filename}</div>
 					<div className={styles.convertContainer}>
 						<label className={styles.convertLabel} htmlFor='choices'>Convert to</label>
 						<select id='choices' className={styles.convertMenu} name='choices' value={convertToType} onChange={handleConvertTypeChange}>

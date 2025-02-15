@@ -59,11 +59,15 @@
 	padding: 3rem;
 	margin: 0.5rem;
 	border-radius: 20px;
-	text-align: left;
 }
 
 .filename {
-	font-size: 32pt;
+	width: 37vw;
+	padding-bottom: 3rem;
+	font-size: 20pt;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .convertContainer {
@@ -114,8 +118,7 @@
 	}
 
 	.filename {
-		font-size: 16pt;
-		margin-bottom: 0.5rem;
+		width: 60vw;
 	}
 
 	.convertContainer {

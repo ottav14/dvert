@@ -100,5 +100,34 @@
 .convertLabel {
 	font-size: 20pt;
 	margin-bottom: 0.5rem;
+	text-align: center;
 }
 
+@media(max-width: 768px) {
+	.page {
+		flex-direction: column;
+	}
+
+	.upload, .main, .info {
+		width: 40vw;
+		height: 40vw;
+	}
+
+	.filename {
+		font-size: 16pt;
+		margin-bottom: 0.5rem;
+	}
+
+	.convertContainer {
+		font-size: 16pt;
+	}
+
+	.convertLabel {
+		font-size: 12pt;
+	}
+
+	.convertMenu {
+		margin-bottom: 1rem;
+	}
+
+}
